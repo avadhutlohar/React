@@ -1,16 +1,28 @@
 import Header from "./components/Header";
 import AddTodo from "./components/AddTodo";
-import TodoItem1 from "./components/TodoItem1";
-import TodoItem2 from "./components/TodoItem2";
+import TodoItems from "./components/TodoItems";
 import "./App.css"
+
 function App() {
+  const todoItems = [
+    {
+      name : "Buy Milk",
+      dueDate : "4/10/23"
+    },
+    {
+      name : "Go to office",
+      dueDate : "4/10/23"
+    }
+    
+  ]
   return (
     <>
       <center >
        <Header></Header>
        <AddTodo></AddTodo>
-      < TodoItem1 />
-        <TodoItem2 />
+       <TodoItems todoItems={todoItems}/>
+       
+       
       </center>
     </>
   );
