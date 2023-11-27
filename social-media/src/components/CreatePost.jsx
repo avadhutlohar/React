@@ -15,7 +15,7 @@ const CreatePost = () => {
     const userId = userIdElement.current.value;
     const postTitle = postTitleElement.current.value;
     const postBody = postBodyElement.current.value;
-    const reaction = reactionElement.current.value;
+    const reactions = reactionElement.current.value;
     const tag = tagElement.current.value.split(" ");
 
     userIdElement.current.value = " ";
@@ -24,7 +24,7 @@ const CreatePost = () => {
     reactionElement.current.value = " ";
     tagElement.current.value = " ";
     
-    addPost(userId, postTitle, postBody, reaction, tag);
+    addPost(userId, postTitle, postBody, reactions, tag);
   };
 
   return (
@@ -66,14 +66,14 @@ const CreatePost = () => {
       </div>
 
       <div className="mb-3">
-        <label htmlFor="reaction" className="form-label">
+        <label htmlFor="reactions" className="form-label">
           Reactions
         </label>
         <input
           type="text"
           ref={reactionElement}
           className="form-control"
-          id="reaction"
+          id="reactions"
         />
       </div>
 

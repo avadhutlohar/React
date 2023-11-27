@@ -3,6 +3,7 @@ import { createContext, useReducer } from "react";
 export const PostList = createContext({
   postList: [],
   addPost: () => {},
+  addInitialPosts: () => {},
   deletePost: () => {},
 });
 
@@ -12,6 +13,9 @@ const postListReducer = (currPostList, action) => {
     newPostList = currPostList.filter(
       (post) => post.id !== action.payload.postId
     );
+  } else if (action.type === "ADD_INITIAL_POSTS") {
+    newPostList = action.payload.posts;
+
   } else if (action.type === "ADD_POST") {
     newPostList = [action.payload, ...currPostList];
   }
@@ -19,20 +23,27 @@ const postListReducer = (currPostList, action) => {
 };
 
 const PostListProvider = ({ children }) => {
-  const [postList, dispatchPostList] = useReducer(
-    postListReducer,
-    DEFAULT_POST_LIST
-  );
-  const addPost = (userId, postTitle, postBody, reaction, tag) => {
+  const [postList, dispatchPostList] = useReducer(postListReducer, []);
+
+  const addPost = (userId, postTitle, postBody, reactions, tag) => {
     dispatchPostList({
       type: "ADD_POST",
       payload: {
         id: Date.now(),
         title: postTitle,
         body: postBody,
-        reaction: reaction,
+        reactions: reactions,
         userId: userId,
         tags: tag,
+      },
+    });
+  };
+
+  const addInitialPosts = (posts) => {
+    dispatchPostList({
+      type: "ADD_INITIAL_POSTS",
+      payload: {
+        posts,
       },
     });
   };
@@ -47,28 +58,12 @@ const PostListProvider = ({ children }) => {
   };
 
   return (
-    <PostList.Provider value={{ postList, addPost, deletePost }}>
+    <PostList.Provider
+      value={{ postList, addPost, addInitialPosts, deletePost }}
+    >
       {children}
     </PostList.Provider>
   );
 };
 
-const DEFAULT_POST_LIST = [
-  {
-    id: "1",
-    title: "Going to mubai",
-    body: "Going to Mumbai",
-    reaction: 2,
-    userId: "user-9",
-    tags: ["vacation", "Mumbai"],
-  },
-  {
-    id: "2",
-    title: "Going to Goa",
-    body: "Going to Goa",
-    reaction: 13,
-    userId: "user-7",
-    tags: ["vacation", "Goa"],
-  },
-];
 export default PostListProvider;
