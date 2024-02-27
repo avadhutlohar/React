@@ -1,0 +1,56 @@
+{
+  "loadSummary": [
+    {
+      "PLSType": "PLS Load",
+      "owner": "CMA CGM",
+      "operator": "CMA CGM",
+      "20ST": 7,
+      "40ST": 7,
+      "40HC": 1,
+      "45HC": 5,
+      "containerNumber": 20,
+      "TEUCount": 33,
+      "weightUOP": 15,
+      "RF": null
+    },
+    {
+      "PLSType": "PLS Cut",
+      "owner": "CMA CGM",
+      "operator": "CMA CGM",
+      "20ST": 7,
+      "40ST": 1,
+      "40HC": 15,
+      "45HC": 23,
+      "containerNumber": 15,
+      "TEUCount": 15,
+      "weightUOP": 15,
+      "RF": null
+    },
+    {
+      "PLSType": "PLS Stand by",
+      "owner": "CMA CGM",
+      "operator": "CMA CGM",
+      "20ST": 7,
+      "40ST": 5,
+      "40HC": 12,
+      "45HC": 6,
+      "containerNumber": 8,
+      "TEUCount": 11,
+      "weightUOP": 6,
+      "RF": null
+    },
+    {
+        "PLSType": "PLS Load with warning",
+        "owner": "CMA CGM",
+        "operator": "CMA CGM",
+        "20ST": 7,
+        "40ST": 5,
+        "40HC": 12,
+        "45HC": 6,
+        "containerNumber": 8,
+        "TEUCount": 11,
+        "weightUOP": 6,
+        "RF": null
+      }
+  ]
+}

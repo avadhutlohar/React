@@ -1,7 +1,13 @@
 import "./App.css";
+import Table from "./Table";
 
 function App() {
-  return <h1>HEllo</h1>;
+  return (
+    <>
+      
+      <Table />
+    </>
+  );
 }
 
 export default App;
