@@ -1,10 +1,13 @@
-import "./App.css";
-import Table from "./Table";
-import BasicTable from "./components/BasicTable";
+import "./App.css"
+import { Table } from "./components/Table";
 
 function App() {
   return (
-    <BasicTable />
+    <div className="App">
+      <div className="container">
+        <Table />
+      </div>
+    </div>
   );
 }
 
